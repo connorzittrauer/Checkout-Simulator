@@ -127,29 +127,31 @@ void userInterface()
     // ampersand so we can directly access the memory address of the variable
     scanf("%d", &simulationTime);
 
-    printf("Enter the number of open regular lines: ");
-    scanf("%d", &numRegularLines);
+    // printf("Enter the number of open regular lines: ");
+    // scanf("%d", &numRegularLines);
 
-    printf("Enter the number of open express lines: ");
-    scanf("%d", &numExpressLines);
+    // printf("Enter the number of open express lines: ");
+    // scanf("%d", &numExpressLines);
 
-    printf("Enter the average time between customers entering checkout line (in seconds): ");
-    scanf("%d", &avgCustomerTimeDifferential);
+    // printf("Enter the average time between customers entering checkout line (in seconds): ");
+    // scanf("%d", &avgCustomerTimeDifferential);
 
     printf("Enter the percentage of qualified Express Customers: ");
     scanf("%d", &percentageExpressCustomers);
 
-    // EXPRESS CUSTOMER TIME
-    printf("Enter the average time needed for an express customer to checkout (in seconds): ");
-    scanf("%d", &avgExpressCustomerTime);
-    printf("Minimum time needed for an express customer to checkout (in seconds): ");
-    scanf("%d", &minExpressCustomerTime);
+    // // EXPRESS CUSTOMER TIME
+    // printf("Enter the average time needed for an express customer to checkout (in seconds): ");
+    // scanf("%d", &avgExpressCustomerTime);
+    // printf("Minimum time needed for an express customer to checkout (in seconds): ");
+    // scanf("%d", &minExpressCustomerTime);
 
-    // REGULAR CUSTOMER TIME
-    printf("Enter the average time needed for a regular customer to checkout (in seconds): ");
-    scanf("%d", &avgRegularCustomerTime);
-    printf("Minimum time needed for a regular customer to checkout (in seconds): ");
-    scanf("%d", &minRegularCustomerTime);
+    // // REGULAR CUSTOMER TIME
+    // printf("Enter the average time needed for a regular customer to checkout (in seconds): ");
+    // scanf("%d", &avgRegularCustomerTime);
+    // printf("Minimum time needed for a regular customer to checkout (in seconds): ");
+    // scanf("%d", &minRegularCustomerTime);
+
+
 
     printf("\n");
 
@@ -186,8 +188,8 @@ void simulation()
     
     int expressCustomerCount = 0;
     int regularCustomerCount = 0;
-    int avgExpressWaitTime = 0;
-    int avgRegularWaitTime = 0;
+    double avgExpressWaitTime = 0;
+    double avgRegularWaitTime = 0;
 
     // start with time 0
     int START_TIME = 0;
@@ -197,42 +199,37 @@ void simulation()
     int guassianRandom;
 
 
-    // LOOP: each time, look to see when the next thing is gonna happen.
     while (START_TIME < simulationTime)
     {   
-        // Generate a random number between 1-100
         expressCheckRandom = rand() % 100 + 1;
       
-        
-
         // Check whether the customer is express or not, if so enqueue them into the express lane 
         if (expressCheckRandom <= percentageExpressCustomers) {
             
+            // the average wait time is the sum of guasianRandom divided by the simulation time.       
             guassianRandom = pgrand(0, 100);
-            enqueue(expressLane, expressCustomerCount++);
-            
-            // logic for wait time
-            
+            avgExpressWaitTime += guassianRandom;
+
+            enqueue(expressLane, expressCustomerCount++);    
 
         }
         // otherwise, enqueue them into the regular lane
         else{
-            
+            guassianRandom = pgrand(0, 100);
+            avgRegularWaitTime += 100;
             enqueue(regularLane, regularCustomerCount++);
 
-            //logic for wait time 
         }
-        //printf("Time: %d\n", START_TIME);
+
         START_TIME += 1;
     }
-    
 
-    // printQueue(expressLane);
-    // printQueue(regularLane);
+    printf("The simulation ran: %d times \n", START_TIME);
     printf("Number of customers processed through express lane: %d\n", getSize(expressLane));
+    printf("The average express customer wait time was: %.2f seconds\n", avgExpressWaitTime/simulationTime);
     printf("Number of customers processed through regular lane: %d\n", getSize(regularLane));
+    printf("The average regular customer wait time was: %.2f seconds\n", avgRegularWaitTime/simulationTime);
 
-    printf("Simulation ran: %d times \n", START_TIME);
 }
 
 
