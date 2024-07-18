@@ -209,7 +209,6 @@ void simulation()
             // the average wait time is the sum of guasianRandom divided by the simulation time.       
             guassianRandom = pgrand(0, 100);
             avgExpressWaitTime += guassianRandom;
-
             enqueue(expressLane, expressCustomerCount++);    
 
         }
@@ -232,24 +231,6 @@ void simulation()
 
 }
 
-
-
-void handleNewCustomer()
-{
-
-    // Create two queues
-
-
-    // // Check if a customer is express
-    // if (linearRand < percentageExpressCustomers)
-    // {
-    //     // check if there are any empty lanes
-
-    //     // else if the customer will go to shortest express lane
-
-    //     // else go to the shortest regular lane
-    // }
-}
 
 int main()
 {
