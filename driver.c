@@ -13,8 +13,6 @@ int minExpressCustomerTime;
 int avgRegularCustomerTime;
 int minRegularCustomerTime;
 
-
-
 // #region
 /*
  * QUEUE IMPLEMENTATION
@@ -127,44 +125,33 @@ void userInterface()
     // ampersand so we can directly access the memory address of the variable
     scanf("%d", &simulationTime);
 
-    // printf("Enter the number of open regular lines: ");
-    // scanf("%d", &numRegularLines);
+    printf("Enter the number of open regular lines: ");
+    scanf("%d", &numRegularLines);
 
-    // printf("Enter the number of open express lines: ");
-    // scanf("%d", &numExpressLines);
+    printf("Enter the number of open express lines: ");
+    scanf("%d", &numExpressLines);
 
-    // printf("Enter the average time between customers entering checkout line (in seconds): ");
-    // scanf("%d", &avgCustomerTimeDifferential);
+    printf("Enter the average time between customers entering checkout line (in seconds): ");
+    scanf("%d", &avgCustomerTimeDifferential);
 
     printf("Enter the percentage of qualified Express Customers: ");
     scanf("%d", &percentageExpressCustomers);
 
-    // // EXPRESS CUSTOMER TIME
-    // printf("Enter the average time needed for an express customer to checkout (in seconds): ");
-    // scanf("%d", &avgExpressCustomerTime);
-    // printf("Minimum time needed for an express customer to checkout (in seconds): ");
-    // scanf("%d", &minExpressCustomerTime);
+    // EXPRESS CUSTOMER TIME
+    printf("Enter the average time needed for an express customer to checkout (in seconds): ");
+    scanf("%d", &avgExpressCustomerTime);
+    printf("Minimum time needed for an express customer to checkout (in seconds): ");
+    scanf("%d", &minExpressCustomerTime);
 
-    // // REGULAR CUSTOMER TIME
-    // printf("Enter the average time needed for a regular customer to checkout (in seconds): ");
-    // scanf("%d", &avgRegularCustomerTime);
-    // printf("Minimum time needed for a regular customer to checkout (in seconds): ");
-    // scanf("%d", &minRegularCustomerTime);
-
-
+    // REGULAR CUSTOMER TIME
+    printf("Enter the average time needed for a regular customer to checkout (in seconds): ");
+    scanf("%d", &avgRegularCustomerTime);
+    printf("Minimum time needed for a regular customer to checkout (in seconds): ");
+    scanf("%d", &minRegularCustomerTime);
 
     printf("\n");
 
-    // Print out to make sure we're assigning variables properly for debugging
-    // printf("Simulation length: %d\n", simulationTime);
-    // printf("Number of regular lines: %d\n", numRegularLines);
-    // printf("Number of express lines: %d\n", numExpressLines);
-    // printf("Average time between customers entering checkout line: %d\n", avgCustomerTimeDifferential);
-    // printf("Percentage of customers that qualify as express: %d\n", percentageExpressCustomers);
-    // printf("Average time needed for an express customer to checkout %d\n", avgExpressCustomerTime);
-    // printf("Minimum time needed for an express customer to checkout %d\n", minExpressCustomerTime);
-    // printf("Average time needed for a regular customer to checkout %d\n", avgRegularCustomerTime);
-    // printf("Minimum time needed for a regular customer to checkout %d\n", minRegularCustomerTime);
+
 }
 
 int pgrand(int x, int y)
